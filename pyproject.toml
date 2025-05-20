@@ -1,0 +1,70 @@
+[tool.poetry]
+name = "CardsTarot"  
+version = "0.1.0"         
+description = "Tarot Readings: A web application for interpreting card symbolism."
+authors = ["Krip47 <kripmecnik47@gmail.com>"]  
+maintainers = ["nikto"]
+license = " Apache-2.0 license"             
+readme = "README.md"         
+
+
+keywords = ["Cards", "Tarot", "cards", "tarot"]
+
+# Ссылка на репозиторий на GitHub (или другой платформе)
+repository = "https://github.com/Krip47/CardsTarot.git"
+
+# Ссылка на документацию (если есть)
+documentation = "netu"
+
+# Ссылка на сайт проекта (если есть)
+homepage = "https://github.com/Krip47/CardsTarot"
+
+# Список категорий, к которым относится проект
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",  # Apache-2.0 license
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Games/Entertainment :: Puzzle Games",         # Тематика для карт Таро
+    "Topic :: Scientific/Engineering :: Artificial Intelligence", #Возможно
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"       # Минимальная версия Python (можно указать несколько: ">=3.7, <3.12")
+requests = "^2.28"  # Пример зависимости (requests)
+
+# Группы зависимостей (например, для разработки, тестирования)
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0"
+flake8 = "^4.0"
+mypy = "^0.910"
+
+[tool.poetry.group.test.dependencies]  # Пример другой группы
+coverage = "^6.0"
+
+# Настройка скриптов (команд)
+[tool.poetry.scripts]
+my-script = "my_poetry_project.main:main"  
+
+# Настройка сборки
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+# Настройка Poetry (необязательно)
+[tool.poetry.plugins."my_plugin"]  
+my_entrypoint = {module = "my_poetry_project.plugin"}
+
+# Дополнительные параметры (необязательно)
+[tool.black]         
+line-length = 88
+target-version = ['py38', 'py39', 'py310', 'py311']
+
+[tool.pytest.ini_options]  
+addopts = "-v --cov=my_poetry_project"
+testpaths = ["tests"]
